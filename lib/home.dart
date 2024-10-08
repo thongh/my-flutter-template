@@ -1,3 +1,4 @@
+import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
@@ -49,6 +50,23 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.person),
+            // The callback passed to the IconButton.isPressed method. When that IconButton is pressed, 
+            // your application creates a new anonymous route and navigates to it. That route will display the ProfileScreen widget, 
+            // which is returned from the MaterialPageRoute.builder callback.
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute<ProfileScreen>(
+                  builder: (context) => const ProfileScreen(),
+                ),
+              );
+            },
+          )
+        ],
+        automaticallyImplyLeading: false,
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -76,6 +94,7 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            const SignOutButton(),
           ],
         ),
       ),
