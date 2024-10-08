@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "319731334863",
+    "project_id": "myfirebaseproject1-b79d4",
+    "storage_bucket": "myfirebaseproject1-b79d4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:319731334863:android:67043164d270adcd0341ba",
+        "android_client_info": {
+          "package_name": "com.pokerbot.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBuuCpXsBDge-nwvmb_W9w9t6iF2qg6-_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
