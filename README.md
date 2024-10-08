@@ -1,8 +1,9 @@
 # my_first_flutter_app
 
-A new Flutter project.
+A Flutter app template that should apply to all requirements.
 
 ## Getting Started
+Install Flutter and everything else and run the app.
 
 This project is a starting point for a Flutter application.
 
