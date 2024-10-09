@@ -53,14 +53,52 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [
           IconButton(
             icon: const Icon(Icons.person),
-            // The callback passed to the IconButton.isPressed method. When that IconButton is pressed, 
-            // your application creates a new anonymous route and navigates to it. That route will display the ProfileScreen widget, 
+            // The callback passed to the IconButton.isPressed method. When that IconButton is pressed,
+            // your application creates a new anonymous route and navigates to it. That route will display the ProfileScreen widget,
             // which is returned from the MaterialPageRoute.builder callback.
             onPressed: () {
               Navigator.push(
                 context,
                 MaterialPageRoute<ProfileScreen>(
-                  builder: (context) => const ProfileScreen(),
+                  builder: (context) => ProfileScreen(
+                    avatar: CircleAvatar(
+                      child: Icon(Icons.person)
+                    ),
+                    // The ProfileScreen.appBar argument accepts an AppBar widget from the Flutter Material package,
+                    // so it can be treated like any other AppBar you've built and passed to a Scaffold.
+                    // In this example, the default functionality of automatically adding a "back" button is kept,
+                    // and the screen now has a title
+                    appBar: AppBar(
+                      title: const Text('User Profile'),
+                    ),
+                    // Pass it a list of actions to the ProfileScreen.actions argument. These actions are of the type FlutterFireUiAction.
+                    // There are many different classes that are subtypes of FlutterFireUiAction, and in general you use them to tell your app
+                    // to react to different auth state changes. The SignedOutAction calls a callback function that you give it when
+                    // the Firebase auth state changes to the currentUser being null.
+                    actions: [
+                      SignedOutAction((context) {
+                        // By adding a callback that calls Navigator.of(context).pop() when SignedOutAction triggers,
+                        // the app will navigate to the previous page. In this example app, there is only one permanent route,
+                        // which shows the sign in page if there isn't a user signed in, and the home page if there is a user.
+                        // Because this happens when the user signs out, the app will display the SignIn page.
+                        Navigator.of(context).pop();
+                      })
+                    ],
+                    // The ProfileScreen widget also has an optional argument named children. This argument accepts a list of widgets, 
+                    // and those widgets will be placed vertically inside of a Column widget that's already used internally 
+                    // to build the ProfileScreen. This Column widget in the ProfileScreen build method will place the children 
+                    // you pass it above the "Sign out" button.
+                    children: [
+                      const Divider(),
+                      Padding(
+                        padding: const EdgeInsets.all(2),
+                        child: AspectRatio(
+                          aspectRatio: 1,
+                          child: Image.asset('assets/flutterfire_300x.png'),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               );
             },
