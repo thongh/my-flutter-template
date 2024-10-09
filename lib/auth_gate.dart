@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;
 import 'package:firebase_ui_auth/firebase_ui_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_ui_oauth_google/firebase_ui_oauth_google.dart';
 
 import 'home.dart';
 
@@ -23,6 +24,7 @@ class AuthGate extends StatelessWidget {
           return SignInScreen(
             providers: [
               EmailAuthProvider(),
+              GoogleProvider(clientId: "319731334863-ush2s8ko9t8409a0fhniq02u8ieu1hs6.apps.googleusercontent.com"),
             ],
             // Using the SignInScreen.headerBuilder argument, you can add whatever widgets you want above the sign-in form.
             // This widget is only displayed on narrow screens, such as mobile devices
