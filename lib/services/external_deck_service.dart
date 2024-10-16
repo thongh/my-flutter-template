@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:my_first_flutter_app/models/deck_model.dart';
 import 'package:my_first_flutter_app/services/api_service.dart';
 
-class DeckService extends ApiService {
+class ExternalDeckService extends ApiService {
 
   Future<DeckModel> startNewDeck([int deckCount = 1]) async {
     final response = await httpGet(
